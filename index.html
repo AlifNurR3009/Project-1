@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .warna {
+            background-color: #007BFF; /* Warna biru */
+        }
+
+        .btn-primary {
+            background-color: black;
+            border-color: rgb(70, 65, 65);
+            color: white
+        }
+
+        .btn-primary:hover {
+            background-color: #007BFF;
+            border-color: palevioletred;
+        }
+
+        /* Font h1 dan h2 */
+        h1, h2 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        /* Responsif gambar */
+        .img-responsive {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Responsive container */
+        .container-md {
+            max-width: 100%;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #7ef1b8 !important;
+        }
+
+        /* Gambar lebih besar */
+        .image-larger {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Gaya carousel */
+        .carousel-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        /* Produk Grid dengan border */
+        .product-grid {
+            margin: 0 -15px;
+        }
+
+        .product-item {
+            border: 2px solid #ddd; /* Border untuk setiap item */
+            border-radius: 10px; /* Membuat sudut border melengkung */
+            padding: 15px; /* Spasi di dalam border */
+            margin-bottom: 20px; /* Jarak antar grid item */
+            transition: transform 0.3s ease;
+        }
+
+        .product-item:hover {
+            transform: scale(1.05); /* Efek zoom saat hover */
+        }
+
+        .product-item img {
+            width: 100%;
+            max-width: 150px; /* Ukuran maksimal lebar gambar */
+            max-height: 150px; /* Ukuran maksimal tinggi gambar */
+            height: auto; /* Tetap menjaga rasio gambar */
+            border-radius: 10px;
+        }
+
+        .product-item h5 {
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        /* Style untuk memisahkan container */
+        .container-produk {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #f8f9fa; /* Warna latar belakang abu-abu terang */
+        }
+
+        /* Definisi animasi */
+    @keyframes fadeInUp {
+         0% {
+             opacity: 0;
+             transform: translateY(20px);
+         }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        .fade-in {
+            opacity: 0; /* Awalnya tidak terlihat */
+            transform: translateY(20px); /* Mulai dari bawah */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        /* Setelah di-scroll */
+        .fade-in-visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeInUp 1s ease-out;
+        }
+
+              /* Footer styling */
+              .footer {
+            background-color: #007BFF; /* Warna sama dengan navbar */
+            color: white;
+            padding: 20px 0;
+        }
+
+        .footer p, .footer a {
+            color: white;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid warna">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#"><img src="logo.jpeg" alt="Brand Logo" class="img-fluid" style="max-height: 50px;"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product.html">Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav> 
+
+        <!-- Konten Utama -->
+        <div class="row">
+            <div class="row fade-in">
+            <!-- Bagian Teks -->
+            <div class="col-lg-6 col-md-6 text-white py-5 px-4">
+                <h1>Selamat datang di web material building :)</h1>
+                <br>
+                <h2>Kami menyediakan barang-barang material yang Anda butuhkan.</h2>
+                <h2>Barang-Barang material yang kami jual adalah barang yang berkualitas tinggi!</h2>
+                <p>Selamat berbelanja!</p>
+            </div>
+            
+            <!-- Bagian Gambar (Carousel) -->
+            <div class="col-lg-6 col-md-6 py-5 text-center">
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="material.jpeg" class="d-block image-larger" alt="Material 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="material1.jpg" class="d-block image-larger" alt="Material 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="material2.jpeg" class="d-block image-larger" alt="Material 3">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container Terpisah untuk Produk Grid -->
+    <div class="row fade-in">
+    <div class="container container-produk">
+        <h2 class="text-center">Produk Unggulan</h2>
+        <div class="row product-grid">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-item">
+                    <img src="produk1.jpeg" alt="Produk 1">
+                    <h5>Sikagrout 215</h5>
+                    <p><b>Rp. 153,000,-</b></p>
+                    <a class="btn btn-primary" href="#" role="button">Beli Sekarang</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-item">
+                    <img src="produk2.jpeg" alt="Produk 2">
+                    <h5>Fosroc Integral Conplast</h5>
+                    <p><b>Rp. 650,000,-</b></p>
+                    <a class="btn btn-primary" href="#" role="button">Beli Sekarang</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-item">
+                    <img src="produk3.jpeg" alt="Produk 3">
+                    <h5>SikaCim Accelerator 900ml</h5>
+                    <p><b>Rp. 35,000,-</b></p>
+                    <a class="btn btn-primary" href="#" role="button">Beli Sekarang</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-item">
+                    <img src="produk4.jpeg" alt="Produk 4">
+                    <h5>Sikamen LN 20KG</h5>
+                    <p><b>Rp. 460,000,-</b></p>
+                    <a class="btn btn-primary" href="#" role="button">Beli Sekarang</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-item">
+                    <img src="produk5.jpeg" alt="Produk 5">
+                    <h5>Ultrachem Membrane</h5>
+                    <p><b>Rp. 645,000,-</b></p>
+                    <a class="btn btn-primary" href="#" role="button">Beli Sekarang</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-item">
+                    <img src="produk6.jpeg" alt="Produk 6">
+                    <h5>Sika Skim Coat</h5>
+                    <p><b>Rp. 69,000,-</b></p>
+                    <a class="btn btn-primary" href="#" role="button">Beli Sekarang</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-item">
+                    <img src="produk7.jpeg" alt="Produk 7">
+                    <h5>Torcing Biasa (Bitumi)</h5>
+                    <p><b>Rp. 522,000,-</b></p>
+                    <a class="btn btn-primary" href="#" role="button">Beli Sekarang</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-item">
+                    <img src="produk8.jpeg" alt="Produk 8">
+                    <h5>Pentens FLESEAL T-200H</h5>
+                    <p><b>Rp. 1,200,000,-</b></p>
+                    <a class="btn btn-primary" href="#" role="button">Beli Sekarang</a>
+                </div>
+            </div>
+            <!-- Image Holder Section -->
+          <!-- Image Holder Section -->
+            <div class="row fade-in">
+                <div class="container text-center">
+                    <h2>Our Gallery</h2>
+                    <p></p>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 mb-4">
+                            <img src="imgholder1.jpeg" class="img-fluid" style="width: 100%; height: 250px; object-fit: cover;" alt="Image placeholder 1">
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-4">
+                            <img src="imgholder2.jpeg" class="img-fluid" style="width: 100%; height: 250px; object-fit: cover;" alt="Image placeholder 2">
+                        </div>
+                        <div class="col-md-4 col-sm-6 mb-4">
+                            <img src="imgholder3.jpeg" class="img-fluid" style="width: 100%; height: 250px; object-fit: cover;" alt="Image placeholder 3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var myCarousel = document.querySelector('#carouselExample');
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 2000, // Slide otomatis setiap 2 detik
+            ride: 'carousel'
+        });
+
+        // Fungsi untuk menambahkan class 'fade-in-visible' ketika elemen muncul di viewport
+        function revealOnScroll(entries, observer) {
+             entries.forEach(entry => {
+                 if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-visible');
+                    observer.unobserve(entry.target); // Hentikan pengamatan setelah terlihat
+                }
+        });
+                }
+
+        // Buat Observer
+        const observer = new IntersectionObserver(revealOnScroll, {
+                    threshold: 0.4 // Elemen terlihat 10% sebelum animasi dimulai
+        });
+
+         // Pilih elemen yang ingin diberikan animasi
+                    document.querySelectorAll('.fade-in').forEach(element => {
+                    observer.observe(element);
+        });
+    </script>
+
+    
+        <div class="container-fluid footer">
+            <footer class="container text-center">
+                <p>Email: <a href="mailto:info@materialbuilding.com">info@materialbuilding.com</a></p>
+                <p>Alamat: Jl. Raya Material No. 123, Jakarta</p>
+                <p>&copy; 2024 Material Building. All rights reserved.</p>
+        </div>
+    
+</footer>
+
+</body>
+</html>
