@@ -244,15 +244,13 @@
             opacity: 0;
             /* Awalnya tidak terlihat */
             transform: translateY(20px);
-            /* Mulai dari bawah */
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
         /* Setelah di-scroll */
         .fade-in-visible {
             opacity: 1;
             transform: translateY(0);
-            animation: fadeInUp 1s ease-out;
+            animation: fade-in 1s;
         }
 
         /* Footer styling */
@@ -472,7 +470,7 @@
 
         // Buat Observer
         const observer = new IntersectionObserver(revealOnScroll, {
-            threshold: 0.2 // Elemen terlihat 10% sebelum animasi dimulai
+            threshold: 0.1 // Elemen terlihat 10% sebelum animasi dimulai
         });
 
         // Pilih elemen yang ingin diberikan animasi
